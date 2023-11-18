@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body class="main-bg-color">
+    <div class="container-fluid border border-top-0 border-end-0 border-start-0 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <p class="fs-4 fw-bold p-3 pb-0">
+                        <a class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="">ArruWebsite</a>
+                    </p>
+                </div>
+                <div class="col-7">
+                    <ul class="nav justify-content-start fs-5 py-2">
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="Java/java.html">Java</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="#">About</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container p-5 pt-0">
+            <div class="row justify-content-around border rounded rounded-4 m-5 bg-white">
+                <div class="col-9 p-4">
+                    <p class="fs-2 fw-bold text-center mb-0">Java</p>
+                    <!-- topic name -->
+                    <p class="fs-5 fw-medium text-center text-secondary">2D Array</p>
+
+                    <p class="fs-5 py-3">3. Program to Multiply Two Matrices </p>
+            <h4>Code</h4>
+            <pre class="bg-dark text-white p-4 rounded mt-3"><code>
+import java.util.Scanner;
+
+public class MatrixMultiplication {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+                                
+        // Get the dimensions of the matrices
+        System.out.print("Enter the number of rows for the first matrix: ");
+        int rows1 = scanner.nextInt();
+                                
+        System.out.print("Enter the number of columns for the first matrix: ");
+        int columns1 = scanner.nextInt();
+                                
+        System.out.print("Enter the number of rows for the second matrix: ");
+        int rows2 = scanner.nextInt();
+                                
+        System.out.print("Enter the number of columns for the second matrix: ");
+        int columns2 = scanner.nextInt();
+                                
+        // Check if matrices can be multiplied
+        if (columns1 != rows2) {
+            System.out.println("Matrices cannot be multiplied. Number of columns in the first matrix must be equal to the number of rows in the second matrix.");
+            return;
+        }
+                                
+        // Create two matrices
+        int[][] matrix1 = new int[rows1][columns1];
+        int[][] matrix2 = new int[rows2][columns2];
+        int[][] productMatrix = new int[rows1][columns2];
+                                
+        // Get elements for the first matrix
+        enterMatrixElements(scanner, matrix1, "first");
+                                
+        // Get elements for the second matrix
+        enterMatrixElements(scanner, matrix2, "second");
+                                
+        // Multiply the matrices
+        multiplyMatrices(matrix1, matrix2, productMatrix);
+                                
+        // Print the matrices and their product
+        System.out.println("First Matrix:");
+        printMatrix(matrix1);
+                                
+        System.out.println("Second Matrix:");
+        printMatrix(matrix2);
+                                
+        System.out.println("Product of Matrices:");
+        printMatrix(productMatrix);
+                                
+        scanner.close();
+    }
+                                
+    // Function to enter matrix elements
+    private static void enterMatrixElements(Scanner scanner, int[][] matrix, String matrixName) {
+        System.out.println("Enter elements for the " + matrixName + " matrix:");
+                                
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.print("Enter element at position [" + i + "][" + j + "]: ");
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+    }
+                                
+    // Function to multiply two matrices
+    private static void multiplyMatrices(int[][] matrix1, int[][] matrix2, int[][] productMatrix) {
+        for (int i = 0; i < matrix1.length; i++) {
+            for (int j = 0; j < matrix2[0].length; j++) {
+                for (int k = 0; k < matrix2.length; k++) {
+                    productMatrix[i][j] += matrix1[i][k] * matrix2[k][j];
+                }
+            }
+        }
+    }
+                                
+    // Function to print a matrix
+    private static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println(); // Move to the next row
+        }
+        System.out.println(); // Separate matrices by a blank line
+    }
+}
+</code></pre>
+<h4 class="py-3">Output</h4>
+<pre class="bg-dark text-white p-4 rounded">
+Enter the number of rows for the first matrix: 2 <br>
+Enter the number of columns for the first matrix: 2 <br>
+Enter the number of rows for the second matrix: 2 <br>
+Enter the number of columns for the second matrix: 2 <br>
+Enter elements for the first matrix: <br>
+Enter element at position [0][0]: 1 <br>
+Enter element at position [0][1]: 2 <br>
+Enter element at position [1][0]: 3 <br>
+Enter element at position [1][1]: 4 <br>
+Enter elements for the second matrix: <br>
+Enter element at position [0][0]: 5 <br>
+Enter element at position [0][1]: 6 <br>
+Enter element at position [1][0]: 7 <br>
+Enter element at position [1][1]: 8 <br>
+<br>
+First Matrix: <br>
+1 2 <br>
+3 4 <br>
+br>
+Second Matrix: <br>
+5 6 <br>
+ 8 <br>
+br>
+Product of Matrices: <br>
+19 22 <br>
+43 50 <br>
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
