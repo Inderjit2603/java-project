@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body class="main-bg-color">
+    <div class="container-fluid border border-top-0 border-end-0 border-start-0 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <p class="fs-4 fw-bold p-3 pb-0">
+                        <a class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="">ArruWebsite</a>
+                    </p>
+                </div>
+                <div class="col-7">
+                    <ul class="nav justify-content-start fs-5 py-2">
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="Java/java.html">Java</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="#">About</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container p-5 pt-0">
+            <div class="row justify-content-around border rounded rounded-4 m-5 bg-white">
+                <div class="col-9 p-4">
+                    <p class="fs-2 fw-bold text-center mb-0">Java</p>
+                    <!-- topic name -->
+                    <p class="fs-5 fw-medium text-center text-secondary">Interface</p>
+
+                    <p class="fs-5 py-3">6. Write a Java program to create an interface Drawable with a method draw() that takes no arguments and returns void. Create three classes Circle, Rectangle, and Triangle that implement the Drawable interface and override the draw() method to draw their respective shapes. </p>
+            <h4>Code</h4>
+            <pre class="bg-dark text-white p-4 rounded mt-3"><code>
+               // Interface for drawable objects
+interface Drawable {
+    void draw();
+}
+                                        
+// Circle class implementing Drawable interface
+class Circle implements Drawable {
+    private double radius;
+                                        
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+                                        
+    <!-- @Override -->
+    public void draw() {
+        System.out.println("Drawing a circle with radius " + radius);
+        // Your logic for drawing a circle goes here
+    }
+}
+                                        
+// Rectangle class implementing Drawable interface
+class Rectangle implements Drawable {
+    private int width;
+    private int height;
+                                        
+    public Rectangle(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+                                        
+                                            <!-- @Override -->
+    public void draw() {
+        System.out.println("Drawing a rectangle with width " + width + " and height " + height);
+        // Your logic for drawing a rectangle goes here
+    }
+}
+                                        
+// Triangle class implementing Drawable interface
+class Triangle implements Drawable {
+    private int base;
+    private int height;
+                                        
+    public Triangle(int base, int height) {
+        this.base = base;
+        this.height = height;
+    }
+                                        
+    <!-- @Override -->
+    public void draw() {
+        System.out.println("Drawing a triangle with base " + base + " and height " + height);
+        // Your logic for drawing a triangle goes here
+    }
+}
+                                        
+// Main class
+public class DrawableExample {
+    public static void main(String[] args) {
+        // Create instances of drawable objects
+        Circle circle = new Circle(5.0);
+        Rectangle rectangle = new Rectangle(8, 4);
+        Triangle triangle = new Triangle(6, 3);
+                                        
+        // Draw the shapes
+        drawShape(circle);
+        drawShape(rectangle);
+        drawShape(triangle);
+    }
+                                        
+    // Method to draw any shape implementing the Drawable interface
+    private static void drawShape(Drawable drawable) {
+        drawable.draw();
+    }
+}    
+</code></pre>
+<h4 class="py-3">Output</h4>
+<pre class="bg-dark text-white p-4 rounded">
+Drawing a circle with radius 5.0 <br>
+Drawing a rectangle with width 8 and height 4 <br>
+Drawing a triangle with base 6 and height 3
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

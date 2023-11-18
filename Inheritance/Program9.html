@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body class="main-bg-color">
+    <div class="container-fluid border border-top-0 border-end-0 border-start-0 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <p class="fs-4 fw-bold p-3 pb-0">
+                        <a class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="">ArruWebsite</a>
+                    </p>
+                </div>
+                <div class="col-7">
+                    <ul class="nav justify-content-start fs-5 py-2">
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="Java/java.html">Java</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="#">About</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container p-5 pt-0">
+            <div class="row justify-content-around border rounded rounded-4 m-5 bg-white">
+                <div class="col-9 p-4">
+                    <p class="fs-2 fw-bold text-center mb-0">Java</p>
+                    <!-- topic name -->
+                    <p class="fs-5 fw-medium text-center text-secondary">Inheritance</p>
+
+                    <p class="fs-5 py-3">9. Write a Java program to create a vehicle class hierarchy. The base class should be Vehicle, with subclasses Truck, Car and Motorcycle. Each subclass should have properties such as make, model, year, and fuel type. Implement methods for calculating fuel efficiency, distance traveled, and maximum speed. </p>
+            <h4>Code</h4>
+            <pre class="bg-dark text-white p-4 rounded mt-3"><code>
+// Base class Vehicle
+class Vehicle {
+    // Properties
+    protected String make;
+    protected String model;
+    protected int year;
+    protected String fuelType;
+                                        
+    // Constructor
+    public Vehicle(String make, String model, int year, String fuelType) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.fuelType = fuelType;
+    }
+                                        
+    // Method to calculate fuel efficiency
+    public double calculateFuelEfficiency() {
+        System.out.println("Calculating fuel efficiency for a generic vehicle");
+        return 0.0; // Default fuel efficiency for a generic vehicle
+    }
+                                        
+    // Method to calculate distance traveled
+    public double calculateDistanceTraveled(double speed, double time) {
+        System.out.println("Calculating distance traveled for a generic vehicle");
+        return speed * time;
+    }
+                                        
+    // Method to get maximum speed
+    public int getMaxSpeed() {
+        System.out.println("Getting maximum speed for a generic vehicle");
+        return 0; // Default maximum speed for a generic vehicle
+    }
+}
+                                        
+// Subclass Truck extending Vehicle
+class Truck extends Vehicle {
+    // Constructor
+    public Truck(String make, String model, int year, String fuelType) {
+        super(make, model, year, fuelType);
+    }
+                                        
+    // Override the calculateFuelEfficiency method for Truck
+    <!-- @Override -->
+    public double calculateFuelEfficiency() {
+        // Your logic for calculating fuel efficiency for a truck goes here
+        System.out.println("Calculating fuel efficiency for a truck");
+        return 0.0;
+    }
+                                        
+    // Override the getMaxSpeed method for Truck
+    <!-- @Override -->
+    public int getMaxSpeed() {
+        // Your logic for getting maximum speed for a truck goes here
+        System.out.println("Getting maximum speed for a truck");
+        return 0;
+    }
+}
+                                        
+// Subclass Car extending Vehicle
+class Car extends Vehicle {
+    // Constructor
+    public Car(String make, String model, int year, String fuelType) {
+        super(make, model, year, fuelType);
+    }
+                                        
+    // Override the calculateFuelEfficiency method for Car
+    <!-- @Override -->
+    public double calculateFuelEfficiency() {
+        // Your logic for calculating fuel efficiency for a car goes here
+        System.out.println("Calculating fuel efficiency for a car");
+        return 0.0;
+    }
+                                        
+    // Override the getMaxSpeed method for Car
+    <!-- @Override -->
+    public int getMaxSpeed() {
+        // Your logic for getting maximum speed for a car goes here
+        System.out.println("Getting maximum speed for a car");
+        return 0;
+    }
+}
+                                        
+// Subclass Motorcycle extending Vehicle
+class Motorcycle extends Vehicle {
+    // Constructor
+    public Motorcycle(String make, String model, int year, String fuelType) {
+        super(make, model, year, fuelType);
+    }
+                                        
+    // Override the calculateFuelEfficiency method for Motorcycle
+    <!-- @Override -->
+    public double calculateFuelEfficiency() {
+        // Your logic for calculating fuel efficiency for a motorcycle goes here
+        System.out.println("Calculating fuel efficiency for a motorcycle");
+        return 0.0;
+    }
+                                        
+    // Override the getMaxSpeed method for Motorcycle
+    <!-- @Override -->
+    public int getMaxSpeed() {
+        // Your logic for getting maximum speed for a motorcycle goes here
+        System.out.println("Getting maximum speed for a motorcycle");
+        return 0;
+    }
+}
+                                        
+// Main class
+public class VehicleHierarchyExample {
+    public static void main(String[] args) {
+        // Create an instance of Truck
+        Truck myTruck = new Truck("Ford", "F-150", 2022, "Gasoline");
+                                        
+        // Create an instance of Car
+        Car myCar = new Car("Toyota", "Camry", 2022, "Hybrid");
+                                        
+        // Create an instance of Motorcycle
+        Motorcycle myMotorcycle = new Motorcycle("Harley-Davidson", "Sportster", 2022, "Gasoline");
+                                        
+        // Demonstrate methods for each vehicle type
+        myTruck.calculateFuelEfficiency();
+        myTruck.calculateDistanceTraveled(60.0, 2.5);
+        myTruck.getMaxSpeed();
+                                        
+        myCar.calculateFuelEfficiency();
+        myCar.calculateDistanceTraveled(70.0, 2.0);
+        myCar.getMaxSpeed();
+                                        
+        myMotorcycle.calculateFuelEfficiency();
+        myMotorcycle.calculateDistanceTraveled(80.0, 1.5);
+        myMotorcycle.getMaxSpeed();
+    }
+}      
+</code></pre>
+<h4 class="py-3">Output</h4>
+<pre class="bg-dark text-white p-4 rounded">
+Calculating fuel efficiency for a truck <br>
+Calculating distance traveled for a truck <br>
+Getting maximum speed for a truck <br>
+Calculating fuel efficiency for a car <br>
+Calculating distance traveled for a car <br>
+Getting maximum speed for a car <br>
+Calculating fuel efficiency for a motorcycle <br>
+Calculating distance traveled for a motorcycle <br>
+Getting maximum speed for a motorcycle <br>
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

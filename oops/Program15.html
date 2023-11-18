@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body class="main-bg-color">
+    <div class="container-fluid border border-top-0 border-end-0 border-start-0 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <p class="fs-4 fw-bold p-3 pb-0">
+                        <a class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="">ArruWebsite</a>
+                    </p>
+                </div>
+                <div class="col-7">
+                    <ul class="nav justify-content-start fs-5 py-2">
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="Java/java.html">Java</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="#">About</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container p-5 pt-0">
+            <div class="row justify-content-around border rounded rounded-4 m-5 bg-white">
+                <div class="col-9 p-4">
+                    <p class="fs-2 fw-bold text-center mb-0">Java</p>
+                    <!-- topic name -->
+                    <p class="fs-5 fw-medium text-center text-secondary">oop</p>
+
+                    <p class="fs-5 py-3">15. Write a Java program to create a class called "MusicLibrary" with a collection of songs and methods to add and remove songs, and to play a random song. </p>
+            <h4>Code</h4>
+            <pre class="bg-dark text-white p-4 rounded mt-3"><code>
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+class Song {
+    private String songTitle;
+    private String artist;
+
+    public Song(String songTitle, String artist) {
+        this.songTitle = songTitle;
+        this.artist = artist;
+    }
+
+    public String getSongTitle() {
+        return songTitle;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+}
+
+class MusicLibrary {
+    private List<Song> songs;
+
+    public MusicLibrary() {
+        this.songs = new ArrayList<>();
+    }
+
+    public void addSong(Song song) {
+        songs.add(song);
+        System.out.println("Added song: " + song.getSongTitle() + " by " + song.getArtist());
+    }
+
+    public void removeSong(Song song) {
+        songs.remove(song);
+        System.out.println("Removed song: " + song.getSongTitle() + " by " + song.getArtist());
+    }
+
+    public void playRandomSong() {
+        if (songs.isEmpty()) {
+            System.out.println("No songs in the library.");
+            return;
+        }
+
+        Random random = new Random();
+        int randomIndex = random.nextInt(songs.size());
+        Song randomSong = songs.get(randomIndex);
+
+        System.out.println("Playing random song: " + randomSong.getSongTitle() + " by " + randomSong.getArtist());
+    }
+}
+
+public class MusicLibraryTest {
+    public static void main(String[] args) {
+        // Create an instance of the MusicLibrary class
+        MusicLibrary myMusicLibrary = new MusicLibrary();
+
+        // Add songs to the music library
+        myMusicLibrary.addSong(new Song("Song 1", "Artist 1"));
+        myMusicLibrary.addSong(new Song("Song 2", "Artist 2"));
+        myMusicLibrary.addSong(new Song("Song 3", "Artist 3"));
+
+        // Play a random song
+        myMusicLibrary.playRandomSong();
+
+        // Remove a song from the music library
+        myMusicLibrary.removeSong(new Song("Song 2", "Artist 2"));
+
+        // Play a random song again
+        myMusicLibrary.playRandomSong();
+    }
+}
+  
+</code></pre>
+<h4 class="py-3">Output</h4>
+<pre class="bg-dark text-white p-4 rounded">
+Added song: Song 1 by Artist 1
+Added song: Song 2 by Artist 2
+Added song: Song 3 by Artist 3
+Playing random song: Song 2 by Artist 2
+Removed song: Song 2 by Artist 2
+Playing random song: Song 1 by Artist 1
+  
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body class="main-bg-color">
+    <div class="container-fluid border border-top-0 border-end-0 border-start-0 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <p class="fs-4 fw-bold p-3 pb-0">
+                        <a class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="">ArruWebsite</a>
+                    </p>
+                </div>
+                <div class="col-7">
+                    <ul class="nav justify-content-start fs-5 py-2">
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="Java/java.html">Java</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="#">About</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container p-5 pt-0">
+            <div class="row justify-content-around border rounded rounded-4 m-5 bg-white">
+                <div class="col-9 p-4">
+                    <p class="fs-2 fw-bold text-center mb-0">Java</p>
+                    <!-- topic name -->
+                    <p class="fs-5 fw-medium text-center text-secondary">Interface</p>
+
+                    <p class="fs-5 py-3">7. Write a Java program to create an interface Sortable with a method sort() that sorts an array of integers in ascending order. Create two classes BubbleSort and SelectionSort that implement the Sortable interface and provide their own implementations of the sort() method. </p>
+            <h4>Code</h4>
+            <pre class="bg-dark text-white p-4 rounded mt-3"><code>
+                // Interface for sorting arrays
+interface Sortable {
+    void sort(int[] array);
+}
+                                        
+// BubbleSort class implementing Sortable interface
+class BubbleSort implements Sortable {
+    <!-- @Override -->
+    public void sort(int[] array) {
+        int n = array.length;
+        boolean swapped;
+                                        
+        do {
+            swapped = false;
+                                        
+            for (int i = 1; i < n; i++) {
+                if (array[i - 1] > array[i]) {
+                    // Swap elements if they are in the wrong order
+                    int temp = array[i - 1];
+                    array[i - 1] = array[i];
+                    array[i] = temp;
+                    swapped = true;
+                }
+            }
+        } while (swapped);
+    }
+}
+                                        
+// SelectionSort class implementing Sortable interface
+class SelectionSort implements Sortable {
+    <!-- @Override -->
+    public void sort(int[] array) {
+        int n = array.length;
+                                        
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+                                        
+            for (int j = i + 1; j < n; j++) {
+                // Find the minimum element in the unsorted part of the array
+                if (array[j] < array[minIndex]) {
+                    minIndex = j;
+                }
+            }
+                                        
+            // Swap the found minimum element with the first element
+            int temp = array[minIndex];
+            array[minIndex] = array[i];
+            array[i] = temp;
+        }
+    }
+}
+                                        
+// Main class
+public class SortableExample {
+    public static void main(String[] args) {
+        // Example array to be sorted
+        int[] arrayToSort = {64, 34, 25, 12, 22, 11, 90};
+                                        
+        // Sort using BubbleSort
+        Sortable bubbleSort = new BubbleSort();
+        bubbleSort.sort(arrayToSort.clone());
+        System.out.println("Sorted array using BubbleSort: " + arrayToString(arrayToSort));
+                                        
+        // Sort using SelectionSort
+        Sortable selectionSort = new SelectionSort();
+        selectionSort.sort(arrayToSort.clone());
+        System.out.println("Sorted array using SelectionSort: " + arrayToString(arrayToSort));
+    }
+                                        
+                                            // Helper method to convert an array to a string for display
+    private static String arrayToString(int[] array) {
+        StringBuilder result = new StringBuilder("[");
+        for (int i = 0; i < array.length; i++) {
+            result.append(array[i]);
+            if (i < array.length - 1) {
+                result.append(", ");
+            }
+        }
+        result.append("]");
+        return result.toString();
+    }
+}   
+</code></pre>
+<h4 class="py-3">Output</h4>
+<pre class="bg-dark text-white p-4 rounded">
+Sorted array using BubbleSort: [11, 12, 22, 25, 34, 64, 90] <br>
+Sorted array using SelectionSort: [11, 12, 22, 25, 34, 64, 90]
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

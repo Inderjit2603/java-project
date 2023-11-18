@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body class="main-bg-color">
+    <div class="container-fluid border border-top-0 border-end-0 border-start-0 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <p class="fs-4 fw-bold p-3 pb-0">
+                        <a class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="">ArruWebsite</a>
+                    </p>
+                </div>
+                <div class="col-7">
+                    <ul class="nav justify-content-start fs-5 py-2">
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="Java/java.html">Java</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="#">About</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container p-5 pt-0">
+            <div class="row justify-content-around border rounded rounded-4 m-5 bg-white">
+                <div class="col-9 p-4">
+                    <p class="fs-2 fw-bold text-center mb-0">Java</p>
+                    <!-- topic name -->
+                    <p class="fs-5 fw-medium text-center text-secondary">Inheritance</p>
+
+                    <p class="fs-5 py-3">16. Write a Java program to create an abstract class Shape with abstract methods calculateArea() and calculatePerimeter(). Create subclasses Circle and Triangle that extend the Shape class and implement the respective methods to calculate the area and perimeter of each shape. </p>
+            <h4>Code</h4>
+            <pre class="bg-dark text-white p-4 rounded mt-3"><code>
+// Abstract class Shape
+abstract class Shape {
+    // Abstract methods
+    public abstract double calculateArea();
+    public abstract double calculatePerimeter();
+}
+                                        
+// Subclass Circle extending Shape
+class Circle extends Shape {
+    // Property
+    private double radius;
+                                        
+    // Constructor
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+                                        
+    // Implementing the calculateArea method for Circle
+    <!-- @Override -->
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+                                        
+    // Implementing the calculatePerimeter method for Circle
+    <!-- @Override -->
+    public double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+                                        
+// Subclass Triangle extending Shape
+class Triangle extends Shape {
+    // Properties
+    private double side1, side2, side3;
+                                        
+    // Constructor
+    public Triangle(double side1, double side2, double side3) {
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+    }
+                                        
+    // Implementing the calculateArea method for Triangle
+    <!-- @Override -->
+    public double calculateArea() {
+        // Using Heron's formula to calculate the area of a triangle
+        double s = (side1 + side2 + side3) / 2.0;
+        return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    }
+                                        
+    // Implementing the calculatePerimeter method for Triangle
+    <!-- @Override -->
+    public double calculatePerimeter() {
+        return side1 + side2 + side3;
+    }
+}
+                                        
+// Main class
+public class AbstractShapeExample {
+    public static void main(String[] args) {
+        // Create instances of Circle and Triangle
+        Circle circle = new Circle(5.0);
+        Triangle triangle = new Triangle(3.0, 4.0, 5.0);
+                                        
+        // Call the calculateArea and calculatePerimeter methods for each instance
+        System.out.println("Circle Area: " + circle.calculateArea());
+        System.out.println("Circle Perimeter: " + circle.calculatePerimeter());
+                                        
+        System.out.println("\nTriangle Area: " + triangle.calculateArea());
+        System.out.println("Triangle Perimeter: " + triangle.calculatePerimeter());
+    }
+}                  
+</code></pre>
+<h4 class="py-3">Output</h4>
+<pre class="bg-dark text-white p-4 rounded">
+Circle Area: 78.53981633974483 <br>
+Circle Perimeter: 31.41592653589793 <br>
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

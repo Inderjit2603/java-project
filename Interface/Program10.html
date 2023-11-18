@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body class="main-bg-color">
+    <div class="container-fluid border border-top-0 border-end-0 border-start-0 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <p class="fs-4 fw-bold p-3 pb-0">
+                        <a class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="">ArruWebsite</a>
+                    </p>
+                </div>
+                <div class="col-7">
+                    <ul class="nav justify-content-start fs-5 py-2">
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="Java/java.html">Java</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="#">About</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container p-5 pt-0">
+            <div class="row justify-content-around border rounded rounded-4 m-5 bg-white">
+                <div class="col-9 p-4">
+                    <p class="fs-2 fw-bold text-center mb-0">Java</p>
+                    <!-- topic name -->
+                    <p class="fs-5 fw-medium text-center text-secondary">Interface</p>
+
+                    <p class="fs-5 py-3">10. Write a Java program to create an interface Encryptable with methods encrypt (String data) and decrypt (String encryptedData) that define encryption and decryption operations. Create two classes AES and RSA that implement the Encryptable interface and provide their own encryption and decryption algorithms. </p>
+            <h4>Code</h4>
+            <pre class="bg-dark text-white p-4 rounded mt-3"><code>
+                // Interface for encryptable objects
+interface Encryptable {
+    String encrypt(String data);
+    String decrypt(String encryptedData);
+}
+                                        
+// AES class implementing Encryptable interface
+class AES implements Encryptable {
+    <!-- @Override -->
+    public String encrypt(String data) {
+        // Your AES encryption logic goes here
+        System.out.println("AES encryption for: " + data);
+        return "Encrypted_AES_" + data;
+    }
+                                        
+    <!-- @Override -->
+    public String decrypt(String encryptedData) {
+        // Your AES decryption logic goes here
+        System.out.println("AES decryption for: " + encryptedData);
+        return encryptedData.replace("Encrypted_AES_", "");
+    }
+}
+                                        
+// RSA class implementing Encryptable interface
+class RSA implements Encryptable {
+    <!-- @Override -->
+    public String encrypt(String data) {
+        // Your RSA encryption logic goes here
+        System.out.println("RSA encryption for: " + data);
+        return "Encrypted_RSA_" + data;
+    }
+                                        
+    <!-- @Override -->
+    public String decrypt(String encryptedData) {
+        // Your RSA decryption logic goes here
+        System.out.println("RSA decryption for: " + encryptedData);
+        return encryptedData.replace("Encrypted_RSA_", "");
+    }
+}
+                                        
+// Main class
+public class EncryptableExample {
+    public static void main(String[] args) {
+        // Create instances of encryptable objects
+        Encryptable aesEncryptor = new AES();
+        Encryptable rsaEncryptor = new RSA();
+                                        
+        // Encrypt and decrypt using AES
+        String dataAES = "Sensitive data";
+        String encryptedAES = aesEncryptor.encrypt(dataAES);
+        String decryptedAES = aesEncryptor.decrypt(encryptedAES);
+                                        
+        System.out.println("Original Data: " + dataAES);
+        System.out.println("Encrypted Data (AES): " + encryptedAES);
+        System.out.println("Decrypted Data (AES): " + decryptedAES);
+                                        
+        System.out.println();
+                                        
+        // Encrypt and decrypt using RSA
+        String dataRSA = "Confidential information";
+        String encryptedRSA = rsaEncryptor.encrypt(dataRSA);
+        String decryptedRSA = rsaEncryptor.decrypt(encryptedRSA);
+                                        
+        System.out.println("Original Data: " + dataRSA);
+        System.out.println("Encrypted Data (RSA): " + encryptedRSA);
+        System.out.println("Decrypted Data (RSA): " + decryptedRSA);
+    }
+}                          
+</code></pre>
+<h4 class="py-3">Output</h4>
+<pre class="bg-dark text-white p-4 rounded">
+AES encryption for: Sensitive data <br>
+AES decryption for: Encrypted_AES_Sensitive data <br>
+Original Data: Sensitive data <br>
+Encrypted Data (AES): Encrypted_AES_Sensitive data <br>
+Decrypted Data (AES): Sensitive data <br>
+ <br>
+RSA encryption for: Confidential information <br>
+RSA decryption for: Encrypted_RSA_Confidential information <br>
+Original Data: Confidential information <br>
+Encrypted Data (RSA): Encrypted_RSA_Confidential information <br>
+Decrypted Data (RSA): Confidential information
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

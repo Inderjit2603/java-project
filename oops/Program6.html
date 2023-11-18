@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body class="main-bg-color">
+    <div class="container-fluid border border-top-0 border-end-0 border-start-0 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <p class="fs-4 fw-bold p-3 pb-0">
+                        <a class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="">ArruWebsite</a>
+                    </p>
+                </div>
+                <div class="col-7">
+                    <ul class="nav justify-content-start fs-5 py-2">
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="Java/java.html">Java</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="#">About</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container p-5 pt-0">
+            <div class="row justify-content-around border rounded rounded-4 m-5 bg-white">
+                <div class="col-9 p-4">
+                    <p class="fs-2 fw-bold text-center mb-0">Java</p>
+                    <!-- topic name -->
+                    <p class="fs-5 fw-medium text-center text-secondary">oop</p>
+
+                    <p class="fs-5 py-3">6. Write a Java program to create a class called "Employee" with a name, job title, and salary attributes, and methods to calculate and update salary. </p>
+            <h4>Code</h4>
+            <pre class="bg-dark text-white p-4 rounded mt-3"><code>
+class Employee {
+    private String name;
+    private String jobTitle;
+    private double salary;
+
+    // Constructor to initialize name, job title, and salary
+    public Employee(String name, String jobTitle, double salary) {
+        this.name = name;
+        this.jobTitle = jobTitle;
+        this.salary = salary;
+    }
+
+    // Getter methods
+    public String getName() {
+        return name;
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    // Method to calculate annual salary
+    public double calculateAnnualSalary() {
+        return salary * 12;
+    }
+
+    // Method to update the salary
+    public void updateSalary(double percentageIncrease) {
+        double increaseAmount = salary * (percentageIncrease / 100);
+        salary += increaseAmount;
+        System.out.println("Salary updated for " + name + ". New Salary: " + salary);
+    }
+}
+
+public class EmployeeExample {
+    public static void main(String[] args) {
+        // Create an instance of the Employee class
+        Employee employee1 = new Employee("John Doe", "Software Engineer", 60000.0);
+
+        // Display employee details
+        System.out.println("Employee Details:");
+        System.out.println("Name: " + employee1.getName());
+        System.out.println("Job Title: " + employee1.getJobTitle());
+        System.out.println("Salary: " + employee1.getSalary());
+
+        // Calculate and display annual salary
+        System.out.println("\nAnnual Salary: " + employee1.calculateAnnualSalary());
+
+        // Update the salary by 10%
+        employee1.updateSalary(10);
+
+        // Display updated salary
+        System.out.println("Updated Annual Salary: " + employee1.calculateAnnualSalary());
+    }
+}
+
+</code></pre>
+<h4 class="py-3">Output</h4>
+<pre class="bg-dark text-white p-4 rounded">
+Employee Details:
+Name: John Doe
+Job Title: Software Engineer
+Salary: 60000.0
+
+Annual Salary: 720000.0
+Salary updated for John Doe. New Salary: 66000.0
+Updated Annual Salary: 792000.0
+
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

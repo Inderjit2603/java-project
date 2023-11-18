@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body class="main-bg-color">
+    <div class="container-fluid border border-top-0 border-end-0 border-start-0 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <p class="fs-4 fw-bold p-3 pb-0">
+                        <a class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="">ArruWebsite</a>
+                    </p>
+                </div>
+                <div class="col-7">
+                    <ul class="nav justify-content-start fs-5 py-2">
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="Java/java.html">Java</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="#">About</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container p-5 pt-0">
+            <div class="row justify-content-around border rounded rounded-4 m-5 bg-white">
+                <div class="col-9 p-4">
+                    <p class="fs-2 fw-bold text-center mb-0">Java</p>
+                    <!-- topic name -->
+                    <p class="fs-5 fw-medium text-center text-secondary">oop</p>
+
+                    <p class="fs-5 py-3">8. Write a Java program to create class called "TrafficLight" with attributes for color and duration, and methods to change the color and check for red or green. </p>
+            <h4>Code</h4>
+            <pre class="bg-dark text-white p-4 rounded mt-3"><code>
+class TrafficLight {
+    private String color;
+    private int duration;
+
+    // Constructor to initialize color and duration
+    public TrafficLight(String color, int duration) {
+        this.color = color;
+        this.duration = duration;
+    }
+
+    // Getter methods
+    public String getColor() {
+        return color;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    // Method to change the color of the traffic light
+    public void changeColor(String newColor, int newDuration) {
+        color = newColor;
+        duration = newDuration;
+        System.out.println("Traffic light changed to " + color + " for " + duration + " seconds.");
+    }
+
+    // Method to check if the traffic light is red
+    public boolean isRed() {
+        return color.equalsIgnoreCase("red");
+    }
+
+    // Method to check if the traffic light is green
+    public boolean isGreen() {
+        return color.equalsIgnoreCase("green");
+    }
+}
+
+public class TrafficLightExample {
+    public static void main(String[] args) {
+        // Create an instance of the TrafficLight class
+        TrafficLight trafficLight = new TrafficLight("red", 30);
+
+        // Display the initial state of the traffic light
+        System.out.println("Initial Traffic Light State:");
+        System.out.println("Color: " + trafficLight.getColor());
+        System.out.println("Duration: " + trafficLight.getDuration() + " seconds");
+
+        // Check if the traffic light is red or green
+        System.out.println("\nIs the traffic light red? " + trafficLight.isRed());
+        System.out.println("Is the traffic light green? " + trafficLight.isGreen());
+
+        // Change the color and duration of the traffic light
+        trafficLight.changeColor("green", 45);
+
+        // Display the updated state of the traffic light
+        System.out.println("\nUpdated Traffic Light State:");
+        System.out.println("Color: " + trafficLight.getColor());
+        System.out.println("Duration: " + trafficLight.getDuration() + " seconds");
+
+        // Check if the traffic light is red or green after the change
+        System.out.println("\nIs the traffic light red? " + trafficLight.isRed());
+        System.out.println("Is the traffic light green? " + trafficLight.isGreen());
+    }
+}
+     
+</code></pre>
+<h4 class="py-3">Output</h4>
+<pre class="bg-dark text-white p-4 rounded">
+Initial Traffic Light State:
+Color: red
+Duration: 30 seconds
+
+Is the traffic light red? true
+Is the traffic light green? false
+Traffic light changed to green for 45 seconds.
+
+Updated Traffic Light State:
+Color: green
+Duration: 45 seconds
+
+Is the traffic light red? false
+Is the traffic light green? true
+ 
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

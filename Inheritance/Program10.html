@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body class="main-bg-color">
+    <div class="container-fluid border border-top-0 border-end-0 border-start-0 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <p class="fs-4 fw-bold p-3 pb-0">
+                        <a class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="">ArruWebsite</a>
+                    </p>
+                </div>
+                <div class="col-7">
+                    <ul class="nav justify-content-start fs-5 py-2">
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="Java/java.html">Java</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="#">About</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container p-5 pt-0">
+            <div class="row justify-content-around border rounded rounded-4 m-5 bg-white">
+                <div class="col-9 p-4">
+                    <p class="fs-2 fw-bold text-center mb-0">Java</p>
+                    <!-- topic name -->
+                    <p class="fs-5 fw-medium text-center text-secondary">Inheritance</p>
+
+                    <p class="fs-5 py-3">10. Write a Java program that creates a class hierarchy for employees of a company. The base class should be Employee, with subclasses Manager, Developer, and Programmer. Each subclass should have properties such as name, address, salary, and job title. Implement methods for calculating bonuses, generating performance reports, and managing projects. </p>
+            <h4>Code</h4>
+            <pre class="bg-dark text-white p-4 rounded mt-3"><code>
+// Base class Employee
+class Employee {
+    // Properties
+    protected String name;
+    protected String address;
+    protected double salary;
+    protected String jobTitle;
+                                        
+    // Constructor
+    public Employee(String name, String address, double salary, String jobTitle) {
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+        this.jobTitle = jobTitle;
+    }
+                                        
+    // Method to calculate bonus
+    public double calculateBonus() {
+        System.out.println("Calculating bonus for a generic employee");
+        return 0.0; // Default bonus for a generic employee
+    }
+                                        
+    // Method to generate performance report
+    public void generatePerformanceReport() {
+        System.out.println("Generating performance report for a generic employee");
+        // Your logic for generating a performance report goes here
+    }
+                                        
+    // Method to manage projects
+    public void manageProjects() {
+        System.out.println("Managing projects for a generic employee");
+        // Your logic for managing projects goes here
+    }
+}
+                                        
+// Subclass Manager extending Employee
+class Manager extends Employee {
+    // Constructor
+    public Manager(String name, String address, double salary, String jobTitle) {
+        super(name, address, salary, jobTitle);
+    }
+                                        
+    // Override the calculateBonus method for Manager
+    <!-- @Override -->
+    public double calculateBonus() {
+        // Your logic for calculating bonus for a manager goes here
+        System.out.println("Calculating bonus for a manager");
+        return 0.1 * salary; // Example: 10% of salary as bonus for a manager
+    }
+                                        
+    // Override the manageProjects method for Manager
+    <!-- @Override -->
+    public void manageProjects() {
+        // Your logic for managing projects as a manager goes here
+        System.out.println("Managing projects as a manager");
+    }
+}
+                                        
+// Subclass Developer extending Employee
+class Developer extends Employee {
+    // Constructor
+    public Developer(String name, String address, double salary, String jobTitle) {
+        super(name, address, salary, jobTitle);
+    }
+                                        
+    // Override the calculateBonus method for Developer
+    <!-- @Override -->
+    public double calculateBonus() {
+        // Your logic for calculating bonus for a developer goes here
+        System.out.println("Calculating bonus for a developer");
+        return 0.08 * salary; // Example: 8% of salary as bonus for a developer
+    }
+                                        
+    // Override the generatePerformanceReport method for Developer
+    <!-- @Override -->
+    public void generatePerformanceReport() {
+        // Your logic for generating a performance report as a developer goes here
+        System.out.println("Generating performance report as a developer");
+    }
+}
+                                        
+// Subclass Programmer extending Developer
+class Programmer extends Developer {
+    // Constructor
+    public Programmer(String name, String address, double salary, String jobTitle) {
+        super(name, address, salary, jobTitle);
+    }
+                                        
+    // Additional methods or overrides specific to Programmer can be added here
+}
+                                        
+// Main class
+public class EmployeeHierarchyExample {
+    public static void main(String[] args) {
+        // Create an instance of Manager
+        Manager manager = new Manager("John Manager", "123 Main St", 80000.0, "Manager");
+
+        // Create an instance of Developer
+        Developer developer = new Developer("Alice Developer", "456 Oak St", 70000.0, "Developer");
+
+        // Create an instance of Programmer
+        Programmer programmer = new Programmer("Bob Programmer", "789 Pine St", 60000.0, "Programmer");
+
+        // Demonstrate methods for each employee type
+        System.out.println("Manager Bonus: $" + manager.calculateBonus());
+        manager.manageProjects();
+
+        System.out.println("\nDeveloper Bonus: $" + developer.calculateBonus());
+        developer.generatePerformanceReport();
+
+        // Programmer inherits methods from Developer
+        System.out.println("\nProgrammer Bonus: $" + programmer.calculateBonus());
+        programmer.generatePerformanceReport();
+    }
+}         
+</code></pre>
+<h4 class="py-3">Output</h4>
+<pre class="bg-dark text-white p-4 rounded">
+Calculating bonus for a manager <br>
+Managing projects as a manager <br>
+<br>
+Calculating bonus for a developer <br>
+Generating performance report as a developer <br>
+ <br>
+Calculating bonus for a programmer <br>
+Generating performance report as a developer <br>
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body class="main-bg-color">
+    <div class="container-fluid border border-top-0 border-end-0 border-start-0 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <p class="fs-4 fw-bold p-3 pb-0">
+                        <a class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="">ArruWebsite</a>
+                    </p>
+                </div>
+                <div class="col-7">
+                    <ul class="nav justify-content-start fs-5 py-2">
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="Java/java.html">Java</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="#">About</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container p-5 pt-0">
+            <div class="row justify-content-around border rounded rounded-4 m-5 bg-white">
+                <div class="col-9 p-4">
+                    <p class="fs-2 fw-bold text-center mb-0">Java</p>
+                    <!-- topic name -->
+                    <p class="fs-5 fw-medium text-center text-secondary">Inheritance</p>
+
+                    <p class="fs-5 py-3">8. Write a Java program to create a class called Shape with methods called getPerimeter() and getArea(). Create a subclass called Circle that overrides the getPerimeter() and getArea() methods to calculate the area and perimeter of a circle. </p>
+            <h4>Code</h4>
+            <pre class="bg-dark text-white p-4 rounded mt-3"><code>
+              // Base class Shape
+class Shape {
+    // Method to get the perimeter
+    public double getPerimeter() {
+        System.out.println("Calculating perimeter of a generic shape");
+        return 0.0; // Default perimeter for a generic shape
+    }
+                                        
+    // Method to get the area
+    public double getArea() {
+        System.out.println("Calculating area of a generic shape");
+        return 0.0; // Default area for a generic shape
+    }
+}
+                                        
+// Subclass Circle extending Shape
+class Circle extends Shape {
+    // Attribute specific to Circle
+    private double radius;
+                                        
+    // Constructor for Circle
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+                                        
+    // Override the getPerimeter method to calculate the perimeter of a circle
+    <!-- @Override -->
+    public double getPerimeter() {
+        double perimeter = 2 * Math.PI * radius;
+        System.out.println("Calculating perimeter of a circle: " + perimeter);
+        return perimeter;
+    }
+                                        
+    // Override the getArea method to calculate the area of a circle
+    <!-- @Override -->
+    public double getArea() {
+        double area = Math.PI * radius * radius;
+        System.out.println("Calculating area of a circle: " + area);
+        return area;
+    }
+}
+                                        
+// Main class
+public class ShapeExample {
+    public static void main(String[] args) {
+        // Create an instance of Shape
+        Shape genericShape = new Shape();
+
+        // Create an instance of Circle
+        Circle myCircle = new Circle(5.0);
+
+        // Demonstrate getPerimeter and getArea for both instances
+        genericShape.getPerimeter();  // Output: Calculating perimeter of a generic shape
+        genericShape.getArea();       // Output: Calculating area of a generic shape
+
+        myCircle.getPerimeter();      // Output: Calculating perimeter of a circle: 31.41592653589793
+        myCircle.getArea();           // Output: Calculating area of a circle: 78.53981633974483
+    }
+}   
+</code></pre>
+<h4 class="py-3">Output</h4>
+<pre class="bg-dark text-white p-4 rounded">
+Calculating perimeter of a generic shape <br>
+Calculating area of a generic shape <br>
+Calculating perimeter of a circle: 31.41592653589793 <br>
+Calculating area of a circle: 78.53981633974483
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

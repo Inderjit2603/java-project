@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body class="main-bg-color">
+    <div class="container-fluid border border-top-0 border-end-0 border-start-0 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <p class="fs-4 fw-bold p-3 pb-0">
+                        <a class="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="">ArruWebsite</a>
+                    </p>
+                </div>
+                <div class="col-7">
+                    <ul class="nav justify-content-start fs-5 py-2">
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="Java/java.html">Java</a>
+                        </li>
+                        <li class="nav-item px-3">
+                          <a class="nav-link link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" href="#">About</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container p-5 pt-0">
+            <div class="row justify-content-around border rounded rounded-4 m-5 bg-white">
+                <div class="col-9 p-4">
+                    <p class="fs-2 fw-bold text-center mb-0">Java</p>
+                    <!-- topic name -->
+                    <p class="fs-5 fw-medium text-center text-secondary">Inheritance</p>
+
+                    <p class="fs-5 py-3">5. Write a Java program to create a class known as "BankAccount" with methods called deposit() and withdraw(). Create a subclass called SavingsAccount that overrides the withdraw() method to prevent withdrawals if the account balance falls below one hundred. </p>
+            <h4>Code</h4>
+            <pre class="bg-dark text-white p-4 rounded mt-3"><code>
+// Base class BankAccount
+class BankAccount {
+    // Attributes
+    protected double balance;
+                                        
+    // Constructor
+    public BankAccount(double initialBalance) {
+        this.balance = initialBalance;
+    }
+                                        
+    // Method to deposit money
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposit: " + amount);
+        displayBalance();
+    }
+                                        
+    // Method to withdraw money
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdrawal: " + amount);
+        } else {
+            System.out.println("Insufficient funds. Withdrawal denied.");
+        }
+        displayBalance();
+    }
+                                        
+    // Method to display the current balance
+    public void displayBalance() {
+        System.out.println("Current Balance: " + balance);
+    }
+}
+                                        
+// Subclass SavingsAccount extending BankAccount
+class SavingsAccount extends BankAccount {
+    // Constructor
+    public SavingsAccount(double initialBalance) {
+        super(initialBalance);
+    }
+                                        
+    // Override the withdraw method to prevent withdrawals below one hundred
+    <!-- @Override -->
+    public void withdraw(double amount) {
+        if (balance - amount >= 100) {
+            super.withdraw(amount);
+        } else {
+            System.out.println("Withdrawal denied. Minimum balance of 100 required.");
+        }
+    }
+}
+                                        
+// Main class
+public class BankAccountExample {
+    public static void main(String[] args) {
+        // Create an instance of BankAccount
+        BankAccount myBankAccount = new BankAccount(500.0);
+
+        // Create an instance of SavingsAccount
+        SavingsAccount mySavingsAccount = new SavingsAccount(200.0);
+
+        // Demonstrate deposit and withdraw for both instances
+        myBankAccount.deposit(300.0);
+        myBankAccount.withdraw(200.0);
+
+        System.out.println(); // Add a separator for better output readability
+
+        mySavingsAccount.deposit(150.0);
+        mySavingsAccount.withdraw(50.0);
+        mySavingsAccount.withdraw(150.0);
+    }
+}                    
+</code></pre>
+<h4 class="py-3">Output</h4>
+<pre class="bg-dark text-white p-4 rounded">
+Deposit: 300.0 <br>
+Current Balance: 800.0 <br>
+Withdrawal: 200.0 <br>
+Current Balance: 600.0 <br>
+ <br>
+Deposit: 150.0 <br>
+Current Balance: 350.0 <br>
+Withdrawal: 50.0 <br>
+Current Balance: 300.0 <br>
+Withdrawal denied. Minimum balance of 100 required. <br>
+Current Balance: 300.0 <br>
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
